@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="{{ asset('css/style.css')}}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
+
+
+<head>
+        <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript">
+        $(window).on('scroll',function(){
+            if($(window).scrollTop()){
+                $('nav').addClass('black');
+            }
+            else{
+                $('nav').removeClass('black');
+            }
+        })
+  /*menu button onclick function*/         $(document).ready(function(){
+                $('.menu h4').click(function(){
+                    $("nav ul").toggleClass("active")
+            })
+            })
+        </script>
+	</head>
+<header>
+
+ 
+<body>
+
+
+
+
+        <div class="responsive-bar">
+        <div class="logo">
+                 <img src="{{asset('/images/rect3.jpg')}} " alt="logo"/>
+           
+            </div>
+            <div class="menu">
+            <h4>Menu</h4>
+            </div>
+        </div>
+		<nav>
+            <div class="logo">
+            <img src="{{asset('/images/rect2.jpg')}} " alt="logo"/>
+          
+            </div>
+         <ul>
+            <li><a href="{{path('home')}}">Acceuil</a></li>
+             <li><a href="{{path('offredemploi')}}">Offredemploi</a></li>
+             <li><a href="">Condidat</a></li>
+             <li><a href="{{path('recruteur')}}">Recruteur</a></li>
+             <li><a href="{{('contact')}}">Contact</a></li>
+             <li><a href="{{('Inscription')}}">Inscription</a></li>
+             <li><a href="{{('connexion')}}">Connexion</a></li>
+
+            </ul>
+        </nav>
+        
+        <section class="sec1"></section>
+        <section class="content">
+            
+          
+  <style>
+    h1 { color:red; }
+    h1 {text-align:center }
+  </style>
+         <h1> Nos offres demplois en ligne</h1>
+Métiers
+
+   <h5> Informatique / Multimédia (224) </h5>
+   <br>
+   <h5> Commercial / Vente / Distribution (195)</h5>
+   <br>
+    <h5>Comptabilité / Gestion Finance / Audit (159)</h5>
+    <br>
+    <h5>Call Center / Télévente (124)</h5>
+    <br>
+    <h5>Ingénieur / Industrie / Production (114)</h5>
+    <br>
+
+
+
+    Marketing / Publicité / Communication (106)
+    Administration / Secrétariat (98)
+    Achats / Logistique (88)
+    Technicien / Industrie / Production (74)
+    Ressources Humaines / Social (54)
+
+
+    Maintenance / Qualité (53)
+    Santé / Paramédical / Optique (47)
+    Enseignement / Formation (43)
+    Consultant / Étude / Conseil (32)
+    Banque / Assurances / Finance Marché (29)
+    Électronique / Électricité / Énergie (28)
+    Tourisme / Hôtellerie / Restauration / Loisirs (28)
+    Architecture / Immobilier (25)
+    Télécoms / Réseaux (24)
+    Agricuture / Agro-Alimentaire / Environnement (20)
+
+ <br>
+ 
+            </p>
+
+ <!--slider-->
+ 
+<div class="wrapper">
+	<div class="photobanner">
+  <img class="first" src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg" alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+  <img src="https://i.ibb.co/DfbLcN1/photo-1426901013385-803d40bd5558.jpg " alt="" />
+</div>
+</div>
+
+css
+	.wrapper {
+	width: 100%;
+	overflow: hidden;
+}
+.photobanner {
+	position: relative;
+	height: 233px;
+	margin-bottom: 30px;
+	display: flex;
+	width: 100%;
+}
+
+.photobanner img {
+  margin: 0px 25px;
+  box-shadow: 2px 2px 8px #8a8a8a;
+}
+
+.photobanner {
+  animation: bannermove 50s linear infinite alternate-reverse;
+}
+
+@keyframes bannermove {
+  from {
+    left: 0px;
+  }
+  to {
+    left: -2700px;
+  }
+}
+
+
+        </section>
+        <section class="sec2"></section>
+        <section class="content">
+        
+            <h1>Trouvez un Travail en Tunisie </h1>
+            <p>Avec emploitunisise soyez le premier informé des dernières offres d’emploi pour postuler immédiatement !
+            </p>
+        </section>
+	</body>
+
+  
+       
+          
+ 
+
+
+
+
+
+
+
+
+
+
+  </head>
+<body>
+ 
+ <!--footer start-->
+<footer>
+  <div class="footer-wrap">
+  <div class="container first_class">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <h3>BE THE FIRST TO KNOW</h3>
+          <p>Get all the latest information on  Triedge Services, Events, Jobs
+            and Fairs. Sign up for our newsletter today.</p>
+        </div>
+        <div class="col-md-4 col-sm-6">
+        <form class="newsletter">
+           <input type="text" placeholder="Email Address"> 
+                                                        <button class="newsletter_submit_btn" type="submit"><i class="fa fa-paper-plane"></i></button>  
+        </form>
+        
+        </div>
+        <div class="col-md-4 col-sm-6">
+        <div class="col-md-12">
+          <div class="standard_social_links">
+        <div>
+          <li class="round-btn btn-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a>
+
+          </li>
+          <li class="round-btn btn-linkedin"><a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+
+          </li>
+          <li class="round-btn btn-twitter"><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+
+          </li>
+          <li class="round-btn btn-instagram"><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+
+          </li>
+          <li class="round-btn btn-whatsapp"><a href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+
+          </li>
+          <li class="round-btn btn-envelop"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+
+          </li>
+        </div>
+      </div>  
+        </div>
+          <div class="clearfix"></div>
+        <div class="col-md-12"><h3 style="text-align: right;">Stay Connected</h3></div>
+        </div>
+      </div>
+  </div>
+    <div class="second_class">
+      <div class="container second_class_bdr">
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+
+          <div class="footer-logo"><img src="http://localhost/lrn/img/footer_logo.png" alt="logo">
+          </div>
+          <p>Your one-stop career platform to find Jobs, Internships, Professional Trainings, Projects, and Volunteering Opportunities.</p>
+        </div>
+        <div class="col-md-2 col-sm-6">
+          <h3>Quick  LInks</h3>
+          <ul class="footer-links">
+            <li><a href="#">Nos service</a>
+            </li>
+            <li><a href="#">Nos offres</a>
+            </li>
+            <li><a href="#">Qui somme nous</a>
+            </li>
+            <li><a href="#">Contact Us</a>
+            </li>
+            <li><a href="#" target="_blank">Terms &amp; Conditions</a>
+            </li>
+            <li><a href="#" target="_blank">Privacy Policy</a>
+            </li>
+            <li><a href="#">Sitemap</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <h3>OUR SERVICES</h3>
+          <ul class="footer-category">
+            <li><a href="#">Fresher Jobs</a>
+            </li>
+            <li><a href="#">InternEdge - Internships &amp; Projects </a>
+            </li>
+            <li><a href="#">Resume Edge - Resume Writing Services</a>
+            </li>
+            <li><a href="#">Readers Galleria - Curated Library</a>
+            </li>
+            <li><a href="#">Trideus - Campus Ambassadors</a>
+            </li>
+          </ul>
+          <div class="clearfix"></div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <h3>triedge Events</h3>
+          <ul class="footer-links">
+            <li><a href="#">Triedge Events</a>
+            </li>
+
+            <li><a href="#">Jobs &AMP; Internship Fair 2019</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+    </div>
+    
+    <div class="row">
+      
+      <div class="container-fluid">
+      <div class="copyright"> Copyright 2019 | All Rights Reserved by TRIEDGE Solutions Pvt. Ltd.</div>
+      </div>
+      
+    </div>
+  </div>
+  
+  </footer>
+
+<!--footer end-->
+
+
+ 
+ 
+    
+
+
+
+
+
+  {% block body %}{% endblock %}
+    <script src="{{ asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('js/jquery-3.5.1.slim.min.js')}}"></script>
+    <script src="{{ asset('js/popper.min.js')}}"></script>
+
+    <script src="{{ asset('js/index.js')}}"></script>
+
+
+    </body>
+</html>
