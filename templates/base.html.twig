@@ -10,104 +10,113 @@
 
 
 <head>
-        <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script type="text/javascript">
-        $(window).on('scroll',function(){
-            if($(window).scrollTop()){
-                $('nav').addClass('black');
-            }
-            else{
-                $('nav').removeClass('black');
-            }
-        })
-  /*menu button onclick function*/         $(document).ready(function(){
-                $('.menu h4').click(function(){
-                    $("nav ul").toggleClass("active")
-            })
-            })
-        </script>
-	</head>
-<header>
-
- 
-<body>
 
 
+<div class="nav">
+  <input type="checkbox" id="nav-check">
+  <div class="nav-header">
+    <div class="nav-title">
+      JoGeek
+    </div>
+  </div>
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+   <h1 class="logo">RS</h1>
 
+  <div class="nav-links">
+  
+    <ul>
+    <a href="{{path('home')}}">Acceuil</a>
+   <a href="{{path('offredemploi')}}">offres d'emplois</a>
+    <a href="{{path('home')}}">condidat</a>
+    <a href="{{path('home')}}">Contact</a>
+    <a href="{{path('home')}}">connexion</a>
+    
+  </div>
+</div>
 
-        <div class="responsive-bar">
-        <div class="logo">
-                 <img src="{{asset('/images/rect3.jpg')}} " alt="logo"/>
-           
-            </div>
-            <div class="menu">
-            <h4>Menu</h4>
-            </div>
+      </div>
+  </nav>
+    <section class="showcase-area" id="showcase">
+      <div class="showcase-container">
+        <h1 class="main-title" id="home">Eat Right Food</h1>
+        <p>Eat Healty, it is good for our health.</p>
+        <a href="#food-menu" class="btn btn-primary">Menu</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="about-wrapper container">
+        <div class="about-text">
+          <p class="small">About Us</p>
+          <h2>Recrutement Tunisie</h2>
+          <p>
+            Choisir le meilleur site de recherche d’emploi en France vous permet de gagner un temps précieux dans la recherche des meilleures offres disponibles sur le marché d’emploi en Tunsie
+          </p>
         </div>
-		<nav>
-            <div class="logo">
-            <img src="{{asset('/images/rect2.jpg')}} " alt="logo"/>
-          
+        <div class="about-img">
+          <img src="https://media.gettyimages.com/vectors/job-search-and-interview-standing-in-a-row-of-job-seekers-vector-id1169300752?s=612x612" alt="emplois" />
+        </div>
+      </div>
+    </section>
+    <section id="food">
+      <h2>Types of jobs</h2>
+      <div class="food-container container">
+        <div class="food-type fruite">
+          <div class="img-container">
+            <img src="https://reviews.tn/wp-content/uploads/2021/01/22-Meilleurs-Sites-pour-Trouver-des-Offres-demploi-en-Tunisie-2021-1152x768.png" alt="error" />
+            <div class="img-content">
+              <h3>fruite</h3>
+              <a
+                href="https://p9z3a6x8.stackpathcdn.com/wp-content/uploads/2021/10/Offre-demploi-ok-pour-RS.jpg"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
             </div>
-         <ul>
-            <li><a href="{{path('home')}}">Acceuil</a></li>
-             <li><a href="{{path('offredemploi')}}">Offredemploi</a></li>
-             <li><a href="">Condidat</a></li>
-             <li><a href="{{path('recruteur')}}">Recruteur</a></li>
-             <li><a href="{{('contact')}}">Contact</a></li>
-             <li><a href="{{('Inscription')}}">Inscription</a></li>
-             <li><a href="{{('connexion')}}">Connexion</a></li>
+          </div>
+        </div>
+        <div class="food-type vegetable">
+          <div class="img-container">
+            <img src="https://p9z3a6x8.stackpathcdn.com/wp-content/uploads/2021/10/Offre-demploi-ok-pour-RS.jpg" alt="error" />
+            <div class="img-content">
+              <h3>vegetable</h3>
+              <a
+                href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5jV3CzFq9TwtDL2V9TQtulP4LBIN5EaDCtCjPz0bZdh-17XdPEFm5tQEcodHt6nWsOl8&usqp=CAU"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="food-type grin">
+          <div class="img-container">
+            <img src="https://reviews.tn/wp-content/uploads/2021/03/Meilleurs-Sites-pour-Trouver-des-Offres-demploi-en-Tunisie.png" alt="error" />
+            <div class="img-content">
+              <h3>grin</h3>
+              <a
+                href="https://en.wikipedia.org/wiki/Grain"
+                class="btn btn-primary"
+                target="blank"
+                >learn more</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            </ul>
-        </nav>
-        
-        <section class="sec1"></section>
-        <section class="content">
-            
-          
-  <style>
-    h1 { color:red; }
-    h1 {text-align:center }
-  </style>
-         <h1> Nos offres demplois en ligne</h1>
-Métiers
-
-   <h5> Informatique / Multimédia (224) </h5>
-   <br>
-   <h5> Commercial / Vente / Distribution (195)</h5>
-   <br>
-    <h5>Comptabilité / Gestion Finance / Audit (159)</h5>
-    <br>
-    <h5>Call Center / Télévente (124)</h5>
-    <br>
-    <h5>Ingénieur / Industrie / Production (114)</h5>
-    <br>
-
-
-
-    Marketing / Publicité / Communication (106)
-    Administration / Secrétariat (98)
-    Achats / Logistique (88)
-    Technicien / Industrie / Production (74)
-    Ressources Humaines / Social (54)
-
-
-    Maintenance / Qualité (53)
-    Santé / Paramédical / Optique (47)
-    Enseignement / Formation (43)
-    Consultant / Étude / Conseil (32)
-    Banque / Assurances / Finance Marché (29)
-    Électronique / Électricité / Énergie (28)
-    Tourisme / Hôtellerie / Restauration / Loisirs (28)
-    Architecture / Immobilier (25)
-    Télécoms / Réseaux (24)
-    Agricuture / Agro-Alimentaire / Environnement (20)
-
- <br>
+       </head>
  
-            </p>
+ </body>
+</html>  
+         
 
  <!--slider-->
  
@@ -126,46 +135,9 @@ Métiers
 </div>
 </div>
 
-css
-	.wrapper {
-	width: 100%;
-	overflow: hidden;
-}
-.photobanner {
-	position: relative;
-	height: 233px;
-	margin-bottom: 30px;
-	display: flex;
-	width: 100%;
-}
-
-.photobanner img {
-  margin: 0px 25px;
-  box-shadow: 2px 2px 8px #8a8a8a;
-}
-
-.photobanner {
-  animation: bannermove 50s linear infinite alternate-reverse;
-}
-
-@keyframes bannermove {
-  from {
-    left: 0px;
-  }
-  to {
-    left: -2700px;
-  }
-}
+<!--slider-->
 
 
-        </section>
-        <section class="sec2"></section>
-        <section class="content">
-        
-            <h1>Trouvez un Travail en Tunisie </h1>
-            <p>Avec emploitunisise soyez le premier informé des dernières offres d’emploi pour postuler immédiatement !
-            </p>
-        </section>
 	</body>
 
   
