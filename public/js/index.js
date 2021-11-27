@@ -48,24 +48,5 @@
 	};
 })(jQuery);
 
-(function($) {
-	$(document).ready(function() {
-		$("#cssmenu").menumaker({
-			format: "multitoggle"
-		});
-	});
-})(jQuery);
-
-
-
-
-
-$(document).ready(function(){
-	$('#menu-icon').on('click', function(){
-	  $('.navbar').toggleClass('expand');
-	  return false;
-	});
-  });
-
 
 

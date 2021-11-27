@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\Candidas;
 use App\Entity\Recruteur;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;

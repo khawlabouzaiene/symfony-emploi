@@ -24,15 +24,9 @@ class Postuler
      */
     private $offredemplois;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="postuler")
-     */
-    private $users;
+   
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="postulers")
-     */
-    private $user;
+   
 
     /**
      * @ORM\ManyToOne(targetEntity=Offredemploi::class, inversedBy="postulers")
@@ -48,6 +42,15 @@ class Postuler
      * @ORM\OneToMany(targetEntity=Recruteur::class, mappedBy="postuler")
      */
     private $recruteurs;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="postuler")
+     */
+    private $user;
+
+  
+
+    
 
     public function __construct()
     {
@@ -91,44 +94,8 @@ class Postuler
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addPostuler($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->removeElement($user)) {
-            $user->removePostuler($this);
-        }
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
+   
+   
 
     public function getOffredemploi(): ?Offredemploi
     {
@@ -180,6 +147,18 @@ class Postuler
                 $recruteur->setPostuler(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -2,27 +2,31 @@
 
 namespace App\Controller\Admin;
 use App\Entity\User;
+use App\Entity\Agence;
 use App\Entity\Postuler;
 use App\Entity\Categorie;
 use App\Entity\Publicite;
 use App\Entity\Recruteur;
 use App\Entity\Evaluation;
-use App\Entity\Commentaire;
 
+use App\Entity\Commentaire;
 use App\Entity\Offredemploi;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class DashboardController extends AbstractDashboardController
 {
     /**
+     * @IsGranted(ROLE_ADMIN)
      * @Route("/admin", name="admin")
      */
     public function index(): Response
     {
+        
         return parent::index();
     }
 
@@ -41,9 +45,9 @@ class DashboardController extends AbstractDashboardController
          yield MenuItem::linkToCrud('publicite', 'fas fa-list', Publicite::class);
          yield MenuItem::linkToCrud('evaluation', 'fas fa-list', Evaluation::class);
          yield MenuItem::linkToCrud('categorie', 'fas fa-list', Categorie::class);
-         yield MenuItem::linkToCrud('user', 'fas fa-list', User::class);
+         yield MenuItem::linkToCrud('user', 'fas fa-user', User::class);
          yield MenuItem::linkToCrud('offredemploi', 'fas fa-list', Offredemploi::class);
-         
+         yield MenuItem::linkToCrud('agence', 'fas fa-list', Agence::class);
          
     }
         }

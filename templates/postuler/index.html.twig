@@ -10,6 +10,49 @@
   </style>
 <h1>Connexion ou créer un compte</h1>
 
+<section id="commentaires">
+    <h1>{{ offredemploi.commentaires | length }} commentaires : </h1>
+   {% for commentaire in offredemploi.commentaires %}
+   <div class="comment">
+       <div class="row">
+           <div class="col-3">
+              {{ commentaire.createdAt| date('d/m/y à H:i' )}})
+           </div>
+           <div class="col-9">
+              {{commentaire.text | raw}}
+           </div>
+       </div>
+
+   </div>
+   {% endfor %}
+
+
+
+   {{ form_start(commentaireForm) }}
+   {{ form_row(commentaireForm.text, {'attr': {'placeholder': "Votre commentaire"}}) }}
+
+   <button type="submit" class="btn btn-success">Commenter !</button>
+   {{ form_end(commentaireForm) }}
+ <section id="commentaires">
+    <h1>{{ offredemploi.commentaires | length }} commentaires : </h1>
+   {% for commentaire in offredemploi.commentaires %}
+   <div class="comment">
+       <div class="row">
+           <div class="col-3">
+             {{ commentaire.createdAt| date('d/m/y à H:i' )}}
+           </div>
+           <div class="col-9">
+              {{commentaire.text | raw}}
+           </div>
+       </div>
+
+   </div>
+   {% endfor %}
+
+
+
+  
+
 
 
 {% endblock %}

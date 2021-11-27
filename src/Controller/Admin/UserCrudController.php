@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
+
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -21,9 +21,7 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-
-
-
+            
             TextField::new('nom'),
             TextField::new('prenom'),
             EmailField::new('email'),
@@ -31,11 +29,14 @@ class UserCrudController extends AbstractCrudController
             TextField::new('adresse'),
             TextField::new('niveau'),
             TextField::new('password'),
-            DateField::new('date_naissance'),
             ImageField::new('image')
             ->setBasePath('image/')
             ->setUploadDir('image/image')
             ->setUploadedFileNamePattern('[randomhash].[extension]'),
+            
+
+
+
 
 
 

@@ -6,11 +6,12 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -18,6 +19,22 @@ class User
      * @ORM\Column(type="integer")
      */
     private $id;
+
+    /**
+     * @ORM\Column(type="string", length=180, unique=true)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    /**
+     * @var string The hashed password
+     * @ORM\Column(type="string")
+     */
+    private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -30,16 +47,6 @@ class User
     private $prenom;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $telephone;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $adresse;
@@ -47,42 +54,25 @@ class User
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $password;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $date_naissance;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $niveau;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Offredemploi::class, mappedBy="User")
-     */
-    private $offredemplois;
+    
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="offredemploi")
+     * @ORM\Column(type="integer")
      */
-    private $user;
+    private $telephone;
 
     /**
-     * @ORM\OneToMany(targetEntity=User::class, mappedBy="user")
+     * @ORM\Column(type="string", length=255)
+     */
+    private $mail;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=Offredemploi::class, mappedBy="user")
      */
     private $offredemploi;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Postuler::class, inversedBy="users")
-     */
-    private $postuler;
 
     /**
      * @ORM\OneToMany(targetEntity=Recruteur::class, mappedBy="user")
@@ -90,9 +80,9 @@ class User
     private $recruteur;
 
     /**
-     * @ORM\OneToMany(targetEntity=Evaluation::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Postuler::class, mappedBy="user")
      */
-    private $evaluation;
+    private $postuler;
 
     /**
      * @ORM\OneToMany(targetEntity=Commentaire::class, mappedBy="user")
@@ -100,24 +90,99 @@ class User
     private $commentaire;
 
     /**
-     * @ORM\OneToMany(targetEntity=Postuler::class, mappedBy="user")
+     * @ORM\OneToMany(targetEntity=Evaluation::class, mappedBy="user")
      */
-    private $postulers;
+    private $evaluation;
 
     public function __construct()
     {
-        $this->offredemplois = new ArrayCollection();
         $this->offredemploi = new ArrayCollection();
-        $this->postuler = new ArrayCollection();
         $this->recruteur = new ArrayCollection();
-        $this->evaluation = new ArrayCollection();
+        $this->postuler = new ArrayCollection();
         $this->commentaire = new ArrayCollection();
-        $this->postulers = new ArrayCollection();
+        $this->evaluation = new ArrayCollection();
     }
 
+    
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUsername(): string
+    {
+        return (string) $this->email;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
     public function getNom(): ?string
@@ -144,30 +209,6 @@ class User
         return $this;
     }
 
-    public function getTelephone(): ?int
-    {
-        return $this->telephone;
-    }
-
-    public function setTelephone(int $telephone): self
-    {
-        $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
     public function getAdresse(): ?string
     {
         return $this->adresse;
@@ -176,42 +217,6 @@ class User
     public function setAdresse(string $adresse): self
     {
         $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getDateNaissance(): ?string
-    {
-        return $this->date_naissance;
-    }
-
-    public function setDateNaissance(string $date_naissance): self
-    {
-        $this->date_naissance = $date_naissance;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
 
         return $this;
     }
@@ -228,18 +233,49 @@ class User
         return $this;
     }
 
+    
+
+    
+
+    public function getTelephone(): ?int
+    {
+        return $this->telephone;
+    }
+
+    
+    public function setTelephone(int $telephone): self
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getMail(): ?string
+    {
+        return $this->mail;
+    }
+
+    public function setMail(string $mail): self
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    
+
     /**
      * @return Collection|Offredemploi[]
      */
-    public function getOffredemplois(): Collection
+    public function getOffredemploi(): Collection
     {
-        return $this->offredemplois;
+        return $this->offredemploi;
     }
 
     public function addOffredemploi(Offredemploi $offredemploi): self
     {
-        if (!$this->offredemplois->contains($offredemploi)) {
-            $this->offredemplois[] = $offredemploi;
+        if (!$this->offredemploi->contains($offredemploi)) {
+            $this->offredemploi[] = $offredemploi;
             $offredemploi->setUser($this);
         }
 
@@ -248,56 +284,12 @@ class User
 
     public function removeOffredemploi(Offredemploi $offredemploi): self
     {
-        if ($this->offredemplois->removeElement($offredemploi)) {
+        if ($this->offredemploi->removeElement($offredemploi)) {
             // set the owning side to null (unless already changed)
             if ($offredemploi->getUser() === $this) {
                 $offredemploi->setUser(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getUser(): ?self
-    {
-        return $this->user;
-    }
-
-    public function setUser(?self $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|self[]
-     */
-    public function getOffredemploi(): Collection
-    {
-        return $this->offredemploi;
-    }
-
-    /**
-     * @return Collection|Postuler[]
-     */
-    public function getPostuler(): Collection
-    {
-        return $this->postuler;
-    }
-
-    public function addPostuler(Postuler $postuler): self
-    {
-        if (!$this->postuler->contains($postuler)) {
-            $this->postuler[] = $postuler;
-        }
-
-        return $this;
-    }
-
-    public function removePostuler(Postuler $postuler): self
-    {
-        $this->postuler->removeElement($postuler);
 
         return $this;
     }
@@ -333,29 +325,29 @@ class User
     }
 
     /**
-     * @return Collection|Evaluation[]
+     * @return Collection|Postuler[]
      */
-    public function getEvaluation(): Collection
+    public function getPostuler(): Collection
     {
-        return $this->evaluation;
+        return $this->postuler;
     }
 
-    public function addEvaluation(Evaluation $evaluation): self
+    public function addPostuler(Postuler $postuler): self
     {
-        if (!$this->evaluation->contains($evaluation)) {
-            $this->evaluation[] = $evaluation;
-            $evaluation->setUser($this);
+        if (!$this->postuler->contains($postuler)) {
+            $this->postuler[] = $postuler;
+            $postuler->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeEvaluation(Evaluation $evaluation): self
+    public function removePostuler(Postuler $postuler): self
     {
-        if ($this->evaluation->removeElement($evaluation)) {
+        if ($this->postuler->removeElement($postuler)) {
             // set the owning side to null (unless already changed)
-            if ($evaluation->getUser() === $this) {
-                $evaluation->setUser(null);
+            if ($postuler->getUser() === $this) {
+                $postuler->setUser(null);
             }
         }
 
@@ -393,10 +385,36 @@ class User
     }
 
     /**
-     * @return Collection|Postuler[]
+     * @return Collection|Evaluation[]
      */
-    public function getPostulers(): Collection
+    public function getEvaluation(): Collection
     {
-        return $this->postulers;
+        return $this->evaluation;
     }
+
+    public function addEvaluation(Evaluation $evaluation): self
+    {
+        if (!$this->evaluation->contains($evaluation)) {
+            $this->evaluation[] = $evaluation;
+            $evaluation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvaluation(Evaluation $evaluation): self
+    {
+        if ($this->evaluation->removeElement($evaluation)) {
+            // set the owning side to null (unless already changed)
+            if ($evaluation->getUser() === $this) {
+                $evaluation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+    
+
 }

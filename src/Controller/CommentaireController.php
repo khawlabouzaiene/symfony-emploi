@@ -2,26 +2,44 @@
 
 namespace App\Controller;
 
-use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\offredemploi;
+use DateTimeImmutable;
+use App\Entity\Commentaire;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CommentaireController extends AbstractController
 {
-    
-    public function __construct(EntityManagerInterface $entityManager ){
-        $this->entityManager = $entityManager;
-    }
     /**
-     * @Route("/commentaire", name="commentaire")
+     * @Route("/comment/add", name="comment_add")
      */
-      public function index(): Response
+    public function add(Request $request)
     {
+        $post_id = $request->request->get('post_id');
 
-        $home= $this->entityManager->getRepository(Commentaire::class)->findAll();
-        return $this->render('commentaire/index.html.twig', [
-            'commentaire' => 'Commentaire',
+        $user = $this->getUser();
+
+        $post = $this->getDoctrine()
+                ->getRepository(Cours::class)
+                ->find($post_id);
+
+        $comment = new Commentaire();
+        $comment->setText($request->request->get('_comment'));
+        $comment->setUser($user);
+        $comment->setOffredemploi($post);
+        $comment->setCreatedAt(new \DateTimeImmutable());
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $entityManager->persist($comment);
+        $entityManager->flush();
+
+        $post_id = $post->getId();
+
+        return $this->redirectToRoute('offredemploi_show',[
+            'id' =>  $post_id
         ]);
     }
 }

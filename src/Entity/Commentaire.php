@@ -22,10 +22,7 @@ class Commentaire
      */
     private $text;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaire")
-     */
-    private $user;
+  
 
     /**
      * @ORM\ManyToOne(targetEntity=Admin::class, inversedBy="commentaires")
@@ -36,6 +33,16 @@ class Commentaire
      * @ORM\ManyToOne(targetEntity=Offredemploi::class, inversedBy="commentaires")
      */
     private $offredemploi;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaire")
+     */
+    private $user;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $createdAt;
 
     public function getId(): ?int
     {
@@ -54,17 +61,7 @@ class Commentaire
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
+    
 
     public function getAdmin(): ?Admin
     {
@@ -86,6 +83,30 @@ class Commentaire
     public function setOffredemploi(?Offredemploi $offredemploi): self
     {
         $this->offredemploi = $offredemploi;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

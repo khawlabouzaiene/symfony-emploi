@@ -85,53 +85,153 @@ class __TwigTemplate_4964706f0326974a315a398c526e78139b95e65ed6a4324671f60c4eb46
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<h1>Contactez-nous</h1>
+        echo "
+<h1>nos offres d'emplois</h1>
 ";
-        // line 7
+        // line 8
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 7, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 8, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 8
+            // line 9
+            echo "        
+
+
+
+
+
+<section id=\"commentaires\">
+    <h1>";
+            // line 16
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 16, $this->source); })()), "commentaires", [], "any", false, false, false, 16)), "html", null, true);
+            echo " commentaires : </h1>
+   ";
+            // line 17
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 17, $this->source); })()), "commentaires", [], "any", false, false, false, 17));
+            foreach ($context['_seq'] as $context["_key"] => $context["commentaire"]) {
+                // line 18
+                echo "   <div class=\"comment\">
+       <div class=\"row\">
+           <div class=\"col-3\">
+              ";
+                // line 21
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentaire"], "nomutilisateur", [], "any", false, false, false, 21), "html", null, true);
+                echo "(<small>";
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentaire"], "createdAt", [], "any", false, false, false, 21), "d/m/y à H:i"), "html", null, true);
+                echo "</small>)
+           </div>
+           <div class=\"col-9\">
+              ";
+                // line 24
+                echo twig_get_attribute($this->env, $this->source, $context["commentaire"], "text", [], "any", false, false, false, 24);
+                echo "
+           </div>
+       </div>
+
+   </div>
+   ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentaire'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 30
             echo "
 
-      <div class=\"row d-flex justify-content-center \">
 
-        <div class=\"col mt-4\">
+   ";
+            // line 33
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 33, $this->source); })()), 'form_start');
+            echo "
+   ";
+            // line 34
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 34, $this->source); })()), "nomutilisateur", [], "any", false, false, false, 34), 'row', ["attr" => ["placeholder" => "Votre nom"]]);
+            echo "
+   ";
+            // line 35
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 35, $this->source); })()), "text", [], "any", false, false, false, 35), 'row', ["attr" => ["placeholder" => "Votre commentaire"]]);
+            echo "
 
-          
+   <button type=\"submit\" class=\"btn btn-success\">Commenter !</button>
+   ";
+            // line 38
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 38, $this->source); })()), 'form_end');
+            echo "
+﻿<section id=\"commentaires\">
+    <h1>";
+            // line 40
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 40, $this->source); })()), "commentaires", [], "any", false, false, false, 40)), "html", null, true);
+            echo " commentaires : </h1>
+   ";
+            // line 41
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 41, $this->source); })()), "commentaires", [], "any", false, false, false, 41));
+            foreach ($context['_seq'] as $context["_key"] => $context["commentaire"]) {
+                // line 42
+                echo "   <div class=\"comment\">
+       <div class=\"row\">
+           <div class=\"col-3\">
+              ";
+                // line 45
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentaire"], "nomutilisateur", [], "any", false, false, false, 45), "html", null, true);
+                echo "(<small>";
+                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentaire"], "createdAt", [], "any", false, false, false, 45), "d/m/y à H:i"), "html", null, true);
+                echo "</small>)
+           </div>
+           <div class=\"col-9\">
+              ";
+                // line 48
+                echo twig_get_attribute($this->env, $this->source, $context["commentaire"], "text", [], "any", false, false, false, 48);
+                echo "
+           </div>
+       </div>
 
-  
-         <div>
-            <h4 class=\"description\"> ";
-            // line 18
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "description", [], "any", false, false, false, 18), "html", null, true);
-            echo "</h4>
-          </div>
-         
+   </div>
+   ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentaire'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 54
+            echo "
 
-        
 
-        <div class=\"col\">
+   ";
+            // line 57
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 57, $this->source); })()), 'form_start');
+            echo "
+   ";
+            // line 58
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 58, $this->source); })()), "nomutilisateur", [], "any", false, false, false, 58), 'row', ["attr" => ["placeholder" => "Votre nom"]]);
+            echo "
+   ";
+            // line 59
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 59, $this->source); })()), "text", [], "any", false, false, false, 59), 'row', ["attr" => ["placeholder" => "Votre commentaire"]]);
+            echo "
 
-          <img src=\"/images/";
-            // line 26
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "image", [], "any", false, false, false, 26), "html", null, true);
-            echo "\" class=\"img-fluid img-images\" alt=\"image\">
+   <button type=\"submit\" class=\"btn btn-success\">Commenter !</button>
+   ";
+            // line 62
+            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 62, $this->source); })()), 'form_end');
+            echo "
+﻿
 
-        </div>
 
-      </div>
 
+
+  <style>
+
+
+
+
+</style>
+     
 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 76
         echo "
-
-
-
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -153,7 +253,7 @@ class __TwigTemplate_4964706f0326974a315a398c526e78139b95e65ed6a4324671f60c4eb46
 
     public function getDebugInfo()
     {
-        return array (  131 => 33,  118 => 26,  107 => 18,  95 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  234 => 76,  214 => 62,  208 => 59,  204 => 58,  200 => 57,  195 => 54,  183 => 48,  175 => 45,  170 => 42,  166 => 41,  162 => 40,  157 => 38,  151 => 35,  147 => 34,  143 => 33,  138 => 30,  126 => 24,  118 => 21,  113 => 18,  109 => 17,  105 => 16,  96 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -163,38 +263,77 @@ class __TwigTemplate_4964706f0326974a315a398c526e78139b95e65ed6a4324671f60c4eb46
 {% block title %}Hello OffredemploiController!{% endblock %}
 
 {% block body %}
-<h1>Contactez-nous</h1>
+
+<h1>nos offres d'emplois</h1>
 {% for item in offredemploi %}
-
-
-      <div class=\"row d-flex justify-content-center \">
-
-        <div class=\"col mt-4\">
-
-          
-
-  
-         <div>
-            <h4 class=\"description\"> {{ item.description}}</h4>
-          </div>
-         
-
         
 
-        <div class=\"col\">
 
-          <img src=\"/images/{{ item.image }}\" class=\"img-fluid img-images\" alt=\"image\">
 
-        </div>
 
-      </div>
 
+<section id=\"commentaires\">
+    <h1>{{ offredemploi.commentaires | length }} commentaires : </h1>
+   {% for commentaire in offredemploi.commentaires %}
+   <div class=\"comment\">
+       <div class=\"row\">
+           <div class=\"col-3\">
+              {{commentaire.nomutilisateur}}(<small>{{ commentaire.createdAt| date('d/m/y à H:i' )}}</small>)
+           </div>
+           <div class=\"col-9\">
+              {{commentaire.text | raw}}
+           </div>
+       </div>
+
+   </div>
+   {% endfor %}
+
+
+
+   {{ form_start(commentaireForm) }}
+   {{ form_row(commentaireForm.nomutilisateur, {'attr': {'placeholder': \"Votre nom\"}}) }}
+   {{ form_row(commentaireForm.text, {'attr': {'placeholder': \"Votre commentaire\"}}) }}
+
+   <button type=\"submit\" class=\"btn btn-success\">Commenter !</button>
+   {{ form_end(commentaireForm) }}
+﻿<section id=\"commentaires\">
+    <h1>{{ offredemploi.commentaires | length }} commentaires : </h1>
+   {% for commentaire in offredemploi.commentaires %}
+   <div class=\"comment\">
+       <div class=\"row\">
+           <div class=\"col-3\">
+              {{commentaire.nomutilisateur}}(<small>{{ commentaire.createdAt| date('d/m/y à H:i' )}}</small>)
+           </div>
+           <div class=\"col-9\">
+              {{commentaire.text | raw}}
+           </div>
+       </div>
+
+   </div>
+   {% endfor %}
+
+
+
+   {{ form_start(commentaireForm) }}
+   {{ form_row(commentaireForm.nomutilisateur, {'attr': {'placeholder': \"Votre nom\"}}) }}
+   {{ form_row(commentaireForm.text, {'attr': {'placeholder': \"Votre commentaire\"}}) }}
+
+   <button type=\"submit\" class=\"btn btn-success\">Commenter !</button>
+   {{ form_end(commentaireForm) }}
+﻿
+
+
+
+
+  <style>
+
+
+
+
+</style>
+     
 {% endfor %}
 
-
-
-
-{% endblock %}
-", "offredemploi/index.html.twig", "/opt/lampp/htdocs/recrutement/templates/offredemploi/index.html.twig");
+{% endblock %}", "offredemploi/index.html.twig", "/opt/lampp/htdocs/recrutement/templates/offredemploi/index.html.twig");
     }
 }

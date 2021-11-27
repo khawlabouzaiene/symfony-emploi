@@ -3,35 +3,24 @@
 {% block title %}Hello OffredemploiController!{% endblock %}
 
 {% block body %}
-<h1>Contactez-nous</h1>
+
+<h1>nos offres d'emplois</h1>
 {% for item in offredemploi %}
-
-
-      <div class="row d-flex justify-content-center ">
-
-        <div class="col mt-4">
-
-          
-
-  
-         <div>
-            <h4 class="description"> {{ item.description}}</h4>
-          </div>
-         
-
         
 
-        <div class="col">
 
-          <img src="/images/{{ item.image }}" class="img-fluid img-images" alt="image">
 
-        </div>
 
-      </div>
+   
 
+
+
+  
+
+
+
+
+     
 {% endfor %}
-
-
-
 
 {% endblock %}

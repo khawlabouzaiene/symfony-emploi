@@ -1,0 +1,177 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+ <h2>Contactez nous</h2>
+<form name="myform" action="" method="POST" onsubmit="return validForm()"> 
+<div class="contactform">
+  <div style="text-align:center">
+    <h1>Contact Us</h1>
+    <p>Contact me for a quote, to collaborate or just say hi :) </p>
+  </div>
+  <div class="row">
+    <div class="column">
+      <form action="/action_page.php">
+        <label for="fname">Nom</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+        <label for="lname">Prenom</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name.."> 
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Your Email..">
+          
+
+        <label for="subject">Message</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+        <input type="envoyer" value="envoyer">
+      </form>
+    </div>
+  </div>
+</div>
+        </form>  
+        <style>
+        input[type=text], [type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=envoyer] {
+  background-color: mediumpurple;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=envoyer]:hover {
+  background-color: deeppink;
+}
+
+
+.contactform {
+  position: relative;    
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  padding: 5px;
+  z-index:2;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom:auto;
+  margin-top:3%;    
+  width: 50%;
+  animation-name: gradient;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;  
+    
+}
+    
+.contactform:hover { 
+ animation-name: gradient;
+ animation-duration: 15s;
+ animation-iteration-count: infinite;    
+    
+   
+}
+
+
+.column {
+  float: center;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+    
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: auto;
+    margin-top:0;
+  }
+}
+
+
+@keyframes gradient {
+  0%   {background-color: #D78DDB;}
+  20%   {background-color: #7AF2C3;}
+  40%  {background-color: #759CEC;}
+  60%   {background-color: #23F2EB;}
+  80%  {background-color: #F27723;}       
+  100% {background-color: #AD3BD7;}
+}
+</style>
+
+<div    id="maCarte"></div>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+<script>
+var carte = L.map('maCarte').setView([36.8064835, 10.1815426], 13);
+
+  // On charge les "tuiles"
+  L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+      // Il est toujours bien de laisser le lien vers la source des données
+      attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+      minZoom: -3,
+      maxZoom: 30
+  }).addTo(carte);
+
+
+  {% for item in agence %}
+  // On crée le marqueur et on lui attribue une popup
+  var marqueur = L.marker([{{ item.lat }}, {{ item.lon }}]).addTo(carte); //.addTo(carte);
+  marqueur.bindPopup("<h3>{{ item.nom }}</h3>");
+
+{% endfor %}
+</script>
+
+<style>
+
+#maCarte{
+height: 50%;
+ width:100%;}
+
+  </style>
+
+
+{% endblock %}
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

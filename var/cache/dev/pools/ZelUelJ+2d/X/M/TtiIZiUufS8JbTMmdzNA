@@ -11,7 +11,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'user',
             ],
             'targetEntity' => [
-                'App\\Entity\\User',
+                'App\\Entity\\Offredemploi',
             ],
         ],
     ],

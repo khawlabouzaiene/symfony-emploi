@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CandidasController!{% endblock %}
+
+{% block body %}
+<div class="form-container">
+  <h1>Connexion candidat</h1
+<br></br>
+<h2>S'il vous plaît entrer votre email et mot de passe</h2>
+<br></br>
+          <input type="email" placeholder="E-Mail" />
+           <input type="text" placeholder="mot de passe" />
+         
+          
+          
+          <a href="#" class="btn btn-primary">envoyer</a>
+          <p>Nouveau recruteur</p>
+          <p>mot de passe oublier? </p>
+
+        </div>
+
+  <style>
+#contact {
+  padding: 5rem 0;
+  background: rgb(226, 226, 226);
+}
+
+.contact-container {
+  display: flex;
+  background:red;
+}
+
+.contact-img {
+  width: 50%;
+}
+
+.contact-img img {
+  display: block;
+  height: 400px;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
+}
+
+.form-container {
+  padding: 1rem;
+  width: 50%;
+  margin: auto;
+}
+
+.form-container input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 1rem 0;
+  box-shadow: none;
+  outline: none;
+  margin-bottom: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.form-container textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  color: #444;
+  outline: none;
+  padding: 1rem 0;
+  resize: none;
+}
+
+.form-container h2 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color:blue;
+  margin-bottom: 1rem;
+  margin-top: -1.2rem;
+}
+
+.form-container a {
+  font-size: 1.3rem;
+}
+
+
+  </style>
+   
+
+   <div class="div-categoryContainer">
+     
+  <img src="https://cdn.tutsplus.com/vector/uploads/2014/03/gem-PW-diamond.jpg" class="picture-left">
+ 
+  <div class="paragraph-right">
+    <h2>Titre du paragraphe</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+<style>
+.picture-left{
+    float: left;
+}
+ 
+.div-categoryContainer{
+    padding: 10px;
+}
+ 
+.paragraph-right {
+  margin-top : 50px;
+}
+</style>
+
+
+
+{% endblock %}

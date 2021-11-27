@@ -143,23 +143,16 @@ class __TwigTemplate_923d2343c933238aa4715e3809b0a9887d627f428fbf5b697d73319ad04
         // line 35
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "email", [], "any", false, false, false, 35), 'row', ["attr" => ["class" => "form-control"]]);
         echo "
+                    
+
                     ";
-        // line 36
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 36, $this->source); })()), "date_naissance", [], "any", false, false, false, 36), 'label', ["label_attr" => ["class" => "form-label"], "label" => "Date_naissance"]);
-        echo "
-                    ";
-        // line 37
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 37, $this->source); })()), "date_naissance", [], "any", false, false, false, 37), 'row', ["attr" => ["class" => "form-control"]]);
+        // line 38
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 38, $this->source); })()), "password", [], "any", false, false, false, 38), 'row');
         echo "
 
                     ";
-        // line 39
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 39, $this->source); })()), "password", [], "any", false, false, false, 39), 'row');
-        echo "
-
-                    ";
-        // line 41
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 41, $this->source); })()), 'form_end');
+        // line 40
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 40, $this->source); })()), 'form_end');
         echo "
                 </div>
                 <div class=\"col\"></div>
@@ -190,7 +183,7 @@ class __TwigTemplate_923d2343c933238aa4715e3809b0a9887d627f428fbf5b697d73319ad04
 
     public function getDebugInfo()
     {
-        return array (  162 => 41,  157 => 39,  152 => 37,  148 => 36,  144 => 35,  140 => 34,  135 => 32,  131 => 31,  125 => 28,  121 => 27,  115 => 24,  109 => 20,  103 => 17,  100 => 16,  98 => 15,  88 => 7,  78 => 6,  59 => 4,  36 => 1,);
+        return array (  155 => 40,  150 => 38,  144 => 35,  140 => 34,  135 => 32,  131 => 31,  125 => 28,  121 => 27,  115 => 24,  109 => 20,  103 => 17,  100 => 16,  98 => 15,  88 => 7,  78 => 6,  59 => 4,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -230,8 +223,7 @@ class __TwigTemplate_923d2343c933238aa4715e3809b0a9887d627f428fbf5b697d73319ad04
 
                     {{ form_label(form.email , 'Email', {'label_attr': {'class': 'form-label'}}) }}
                     {{ form_row(form.email , {'attr' : {'class' : 'form-control'}}) }}
-                    {{ form_label(form.date_naissance , 'Date_naissance', {'label_attr': {'class': 'form-label'}}) }}
-                    {{ form_row(form.date_naissance  , {'attr' : {'class' : 'form-control'}}) }}
+                    
 
                     {{ form_row(form.password) }}
 

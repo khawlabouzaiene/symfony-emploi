@@ -29,6 +29,11 @@ class Evaluation
      */
     private $user;
 
+   
+    
+
+   
+
     public function __construct()
     {
         $this->offredemplois = new ArrayCollection();
@@ -80,4 +85,8 @@ class Evaluation
 
         return $this;
     }
+
+    
+
+
 }
