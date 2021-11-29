@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Controller\Admin\OffredemploiCrudController;
 use App\Entity\Commentaire;
 use App\Entity\Offredemploi;
 use App\Form\CommentaireType;
@@ -25,28 +26,16 @@ class offredemploiController extends AbstractController
 /**
  * @Route("/offredemploi", name="offredemploi")
  */
-public function index(Request $request,Offredemploi $offredemploi,EntityManagerInterface $manager): Response
-{
-    $commentaire = new commentaire();
-    
-    $form = $this->createForm(CommentaireType::class,$commentaire);
-    $form->handleRequest($request);
+public function index(): Response
+    {
 
-    if($form->isSubmitted() && $form->isValid()){
-        $commentaire->setCreatedAt(new \DateTimeImmutable())
-                 ->setOffredemploi($offredemploi);
-        $manager->persist($commentaire);
-        $manager->flush();
+        $offredemplois = $this->entityManager->getRepository(Offredemploi::class)->findAll();
      
-                 return $this->redirectToRoute('offrededemploi');
-        }
-
-    $offredemploi = $this->entityManager->getRepository(Offredemploi::class)->findAll();
         return $this->render('offredemploi/index.html.twig', [
-            'offredemploi' => $offredemploi, 
-            'commentaireForm' => $form->createView()
+            'offredemploi' => '$offredemploi',
         ]);
+    }
 }
 
-}
+
 

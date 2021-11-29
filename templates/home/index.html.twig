@@ -4,30 +4,156 @@
 
 {% block body %}
  
-<div class="frame"></div>
-<style>
-.frame {
-  height: 90vh;
-  width: 100%;
-  margin: 5vh 5vw;
-  background-color: #eee;
-  background-position: center;
-  background-size: cover;
-  
-  animation: image 3s infinite alternate;
+ <div class="slideshow">
+
+        <div class="slideshow-item">
+            <img src="https://ad962edbae8ba7b03b7f-d10007df79b5b7a4e475a291e50a08cf.ssl.cf3.rackcdn.com/ouvrir-un-cabinet-de-recrutement/thumb.jpg">
+            <div class="slideshow-item-text">
+                <h5>New York City, NY</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae molestiae odio in! Odit adipisci exercitationem accusantium ea enim deleniti, maiores corrupti nam, voluptas nemo excepturi? Doloremque, architecto? Asperiores, dolores perspiciatis voluptates aperiam ex vero vel, natus dolore cupiditate ab similique error odit obcaecati sunt minus quis quos velit earum ad?</p>
+            </div>
+        </div>
+        
+        <div class="slideshow-item">
+            <img src="https://f.hellowork.com/helloworkplace/2019/05/Candidat-1200x684.jpg">
+            <div class="slideshow-item-text">
+                <h5>Sanfransisco, CA</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae molestiae odio in! Odit adipisci exercitationem accusantium ea enim deleniti, maiores corrupti nam, voluptas nemo excepturi? Doloremque, architecto? Asperiores, dolores perspiciatis voluptates aperiam ex vero vel, natus dolore cupiditate ab similique error odit obcaecati sunt minus quis quos velit earum ad?</p>
+            </div>
+        </div>
+        <div class="slideshow-item">
+            <img src="https://major-prepa.com/wp-content/uploads/2021/01/E11004_panoralarger.jpg">
+            <div class="slideshow-item-text">
+                <h5>Recrutez en ligne!</h5>
+                <p>Vous recherchez un candidat? Transmettez-nous vos besoins de recrutement. </p>
+            </div>
+        </div>
+
+    </div>
+    <style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-@keyframes image {
-  0% {
-    background-image: url('https://www.anthedesign.fr/w2015/wp-content/uploads/2014/02/emploi-sur-internet.jpg');
-  }
-  100% {
-    background-image: url('https://www.lesmotspositifs.com/wp-content/uploads/2019/08/emploi_de_reve_citation.jpg');
-  }
+html{
+    font-size: 10px;
 }
-</style>
- <div id="container">
- 
+
+body{
+    background-color:;
+}
+
+.slideshow{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slideshow-item{
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    opacity: 0;
+    animation: slideanim 31s infinite;
+}
+
+.slideshow-item:nth-child(1),
+.slideshow-item:nth-child(1) img{
+    animation-delay: 0;
+}
+.slideshow-item:nth-child(2),
+.slideshow-item:nth-child(2) img{
+    animation-delay: 10s;
+}
+
+.slideshow-item:nth-child(3),
+.slideshow-item:nth-child(3) img{
+    animation-delay: 20s;
+}
+
+.slideshow-item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom 31s infinite;
+}
+
+.slideshow-item-text{
+    max-width: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background:blue;
+    color: #fff;
+    padding: 10rem 5rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.slideshow-item-text h5{
+    font-size: 3.5rem;
+    letter-spacing: 3px;
+}
+
+.slideshow-item-text p{
+    font-weight: 300;
+    font-size: 1.6rem;
+    margin-top: 2rem;
+}
+
+@keyframes slideanim{
+    25%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+    }
+}
+
+@keyframes zoom{
+    100%{
+        transform: scale(1.3);
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .slideshow-item-text{
+        max-width: 75%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .slideshow-item-text{
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 456px){
+    .slideshow-item-text{
+        max-width: 100%;
+        top: inherit;
+        transform: translateY(0);
+        bottom: 0;
+    }
+
+    .slideshow-item-text h5{
+        font-size: 2rem;
+    }
+
+    .slideshow-item-text p{
+        font-size: 1rem;
+    }
+}
+    
+    </style>
+
+
+
+
+
     
     <!-- Each image is 200px by 200px -->
     <div class="photobanner">

@@ -87,151 +87,279 @@ class __TwigTemplate_4964706f0326974a315a398c526e78139b95e65ed6a4324671f60c4eb46
         // line 6
         echo "
 <h1>nos offres d'emplois</h1>
-";
-        // line 8
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 8, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 9
-            echo "        
+
+        
 
 
 
 
 
-<section id=\"commentaires\">
-    <h1>";
-            // line 16
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 16, $this->source); })()), "commentaires", [], "any", false, false, false, 16)), "html", null, true);
-            echo " commentaires : </h1>
-   ";
-            // line 17
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 17, $this->source); })()), "commentaires", [], "any", false, false, false, 17));
-            foreach ($context['_seq'] as $context["_key"] => $context["commentaire"]) {
-                // line 18
-                echo "   <div class=\"comment\">
-       <div class=\"row\">
-           <div class=\"col-3\">
-              ";
-                // line 21
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentaire"], "nomutilisateur", [], "any", false, false, false, 21), "html", null, true);
-                echo "(<small>";
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentaire"], "createdAt", [], "any", false, false, false, 21), "d/m/y à H:i"), "html", null, true);
-                echo "</small>)
-           </div>
-           <div class=\"col-9\">
-              ";
-                // line 24
-                echo twig_get_attribute($this->env, $this->source, $context["commentaire"], "text", [], "any", false, false, false, 24);
-                echo "
-           </div>
-       </div>
+<header>
+  <h1>Responsive Table Styling</h1>
+  <h2>We can't always avoid table tags.</h2>
+</header>
 
-   </div>
-   ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentaire'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 30
-            echo "
+<table class=\"responsive-table\">
+  <tr class=\"table-header\">
+    <th>Event</th>
+    <th>Location</th>
+    <th>Time</th>
+    <th>Price</th>
+    <th>More Info</th>
+  </tr>
+  <tr>
+    <td class=\"event\">A Night of Musical Goodness <span>w/s/g The Robot Kids</span></td>
+    <td class=\"location\">Dr. Wily's Laboratory</td>
+    <td class=\"time\">7pm door / 8pm show</td>
+    <td class=\"price\">\$12</td>
+    <td class=\"more-info\"><a href=\"#\">View More</a></td>
+  </tr>
+  <tr>
+    <td class=\"event\">Songwriting Clinic</td>
+    <td class=\"location\">Jeb's Music Studio</td>
+    <td class=\"time\">5<span class=\"desktop-fluff\">:00</span>pm&#8202;&ndash;&#8202;7:45pm</td>
+    <td class=\"price\">Free</td>
+    <td class=\"more-info\"><a href=\"#\">View More</a></td>
+  </tr>
+  <tr>
+    <td class=\"event\">The Orchestra Fam, <span>Conducted by Aaron&nbsp;Rhoades</span></td>
+    <td class=\"location\">The Dreamland Theater</td>
+    <td class=\"time\">7<span class=\"desktop-fluff\">:00</span>pm&#8202;&ndash;&#8202;11<span class=\"desktop-fluff\">:00</span>pm</td>
+    <td class=\"price\">\$12</td>
+    <td class=\"more-info\"><a href=\"#\">View More</a></td>
+  </tr>
+</table>
+
+<style>
+h1,
+h2 {
+  text-align: center;
+}
+header {
+  h1 {
+    font-family: \"Rammetto One\", cursive;
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-family: \"Roboto\", sans-serif;
+  }
+}
+
+table.responsive-table {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  a {
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 6px 3px;
+    border: 1px solid #298ffb;
+    transition: all 0.1s ease-in-out;
+  }
+  a:hover {
+    color: #fff;
+    background: #73b7ff;
+    transition: all 0.2s ease-in-out;
+  }
+}
+td,
+th {
+  text-align: center;
+  vertical-align: middle;
+}
+tr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #eee;
+  max-width: 400px;
+  margin: 10px 10px 20px;
+  padding: 20px;
+  box-shadow: 0 5px 10px -5px #aaa;
+      border-left: 10px solid #ffa1a1;
+    border-bottom: none;
+
+  &.table-header {
+    align-self: center;
+    display: none;
+  }
+}
+td {
+  font-family: \"Roboto\", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.more-info a {
+  color: #298ffb;
+}
+
+//getting into specific styles
+.event {
+  font-family: \"Rammetto One\", cursive;
+  color: #ffa1a1;
+}
+td:not(.event) {
+  text-align: left;
+  margin-bottom: 5px;
+  color: #777;
+}
+.desktop-fluff {
+  display: none;
+}
+
+//mobile extras
+td.price:before {
+  content: \"Price:\";
+  display: inline-block;
+  margin-right: 5px;
+}
+
+td.price {
+  display: flex;
+  flex-direction: row;
+}
+
+td.location {
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+}
+
+td.location:before {
+  content: \"@\";
+  margin-right: 3px;
+  position: relative;
+  top: -1px;
+}
 
 
-   ";
-            // line 33
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 33, $this->source); })()), 'form_start');
-            echo "
-   ";
-            // line 34
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 34, $this->source); })()), "nomutilisateur", [], "any", false, false, false, 34), 'row', ["attr" => ["placeholder" => "Votre nom"]]);
-            echo "
-   ";
-            // line 35
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 35, $this->source); })()), "text", [], "any", false, false, false, 35), 'row', ["attr" => ["placeholder" => "Votre commentaire"]]);
-            echo "
+@media (min-width: 350px) {
+  td:not(.event) {
+    margin-left: 30%;
+    align-items: flex-start;
+    display: flex;
+  }
 
-   <button type=\"submit\" class=\"btn btn-success\">Commenter !</button>
-   ";
-            // line 38
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 38, $this->source); })()), 'form_end');
-            echo "
-﻿<section id=\"commentaires\">
-    <h1>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 40, $this->source); })()), "commentaires", [], "any", false, false, false, 40)), "html", null, true);
-            echo " commentaires : </h1>
-   ";
-            // line 41
-            $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["offredemploi"]) || array_key_exists("offredemploi", $context) ? $context["offredemploi"] : (function () { throw new RuntimeError('Variable "offredemploi" does not exist.', 41, $this->source); })()), "commentaires", [], "any", false, false, false, 41));
-            foreach ($context['_seq'] as $context["_key"] => $context["commentaire"]) {
-                // line 42
-                echo "   <div class=\"comment\">
-       <div class=\"row\">
-           <div class=\"col-3\">
-              ";
-                // line 45
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentaire"], "nomutilisateur", [], "any", false, false, false, 45), "html", null, true);
-                echo "(<small>";
-                echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["commentaire"], "createdAt", [], "any", false, false, false, 45), "d/m/y à H:i"), "html", null, true);
-                echo "</small>)
-           </div>
-           <div class=\"col-9\">
-              ";
-                // line 48
-                echo twig_get_attribute($this->env, $this->source, $context["commentaire"], "text", [], "any", false, false, false, 48);
-                echo "
-           </div>
-       </div>
+  td.event {
+    align-self: center;
+    margin-bottom: 14px;
+  }
+  td.event:after {
+    display: block;
+    content: \"\";
+    width: 100%;
+    height: 2px;
+    background: #ffa1a1;
+    position: relative;
+    top: 3px;
+  }
+}
 
-   </div>
-   ";
-            }
-            $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['commentaire'], $context['_parent'], $context['loop']);
-            $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 54
-            echo "
+@media (min-width: 768px) {
+  .desktop-fluff {
+    display: initial;
+  }
+  table.responsive-table,
+  tr,
+  td,
+  th {
+    margin: 0 auto;
+    border: 1px solid #eee;
+    border-collapse: collapse;
+  }
+  table.responsive-table {
+    display: table;
+    a {
+      text-decoration: underline;
+      border: none;
+      padding: initial;
+    }
+    a:hover {
+      background: none;
+      color: #73b7ff;
+    }
+    tr.table-header,
+    tr {
+      font-family: \"Roboto\", sans-serif;
+      display: table-row;
+      flex-direction: unset;
+      justify-content: unset;
+      align-items: unset;
+      box-shadow: none;
+    }
+    td {
+      max-width: unset;
+      display: table-cell;
+      &.event {
+        font-family: \"Roboto\", sans-serif;
+        color: #222;
+        font-size: 16px;
+        font-weight: 900;
+        text-align: left;
+      }
+      &:not(.event){
+        text-align: center;
+      }
+    }
+  }
 
+  tr {
+    th,
+    td {
+      border: 1px solid #aaa;
+      padding: 10px;
+    }
+    th {
+      font-family: \"Rammetto One\", cursive;
+      background: #4eb342;
+      border-color: #44943b;
+      color: white;
+      text-shadow: -2px 2px black;
+      font-weight: 100;
+    }
+  }
 
-   ";
-            // line 57
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 57, $this->source); })()), 'form_start');
-            echo "
-   ";
-            // line 58
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 58, $this->source); })()), "nomutilisateur", [], "any", false, false, false, 58), 'row', ["attr" => ["placeholder" => "Votre nom"]]);
-            echo "
-   ";
-            // line 59
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 59, $this->source); })()), "text", [], "any", false, false, false, 59), 'row', ["attr" => ["placeholder" => "Votre commentaire"]]);
-            echo "
+  //remove mobile extras
+  td.price:before,
+  td.location:before,
+  table td.event:after {
+    display: none;
+  }
 
-   <button type=\"submit\" class=\"btn btn-success\">Commenter !</button>
-   ";
-            // line 62
-            echo             $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["commentaireForm"]) || array_key_exists("commentaireForm", $context) ? $context["commentaireForm"] : (function () { throw new RuntimeError('Variable "commentaireForm" does not exist.', 62, $this->source); })()), 'form_end');
-            echo "
-﻿
+  td.price,
+  td.location,
+  td:not(.event) {
+    display: table-cell;
+  }
+  table.responsive-table td:not(.event) {
+    margin-left: auto;
+    margin-bottom: auto;
+    align-items: unset;
+    display: table-cell;
+  }
 
-
-
-
-  <style>
-
-
-
+  td.event {
+    align-self: unset;
+    margin-bottom: 0;
+  }
+}
 
 </style>
+   
+
+
+
+
+
      
-";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 76
-        echo "
+
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -253,7 +381,7 @@ class __TwigTemplate_4964706f0326974a315a398c526e78139b95e65ed6a4324671f60c4eb46
 
     public function getDebugInfo()
     {
-        return array (  234 => 76,  214 => 62,  208 => 59,  204 => 58,  200 => 57,  195 => 54,  183 => 48,  175 => 45,  170 => 42,  166 => 41,  162 => 40,  157 => 38,  151 => 35,  147 => 34,  143 => 33,  138 => 30,  126 => 24,  118 => 21,  113 => 18,  109 => 17,  105 => 16,  96 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -265,74 +393,278 @@ class __TwigTemplate_4964706f0326974a315a398c526e78139b95e65ed6a4324671f60c4eb46
 {% block body %}
 
 <h1>nos offres d'emplois</h1>
-{% for item in offredemploi %}
+
         
 
 
 
 
 
-<section id=\"commentaires\">
-    <h1>{{ offredemploi.commentaires | length }} commentaires : </h1>
-   {% for commentaire in offredemploi.commentaires %}
-   <div class=\"comment\">
-       <div class=\"row\">
-           <div class=\"col-3\">
-              {{commentaire.nomutilisateur}}(<small>{{ commentaire.createdAt| date('d/m/y à H:i' )}}</small>)
-           </div>
-           <div class=\"col-9\">
-              {{commentaire.text | raw}}
-           </div>
-       </div>
+<header>
+  <h1>Responsive Table Styling</h1>
+  <h2>We can't always avoid table tags.</h2>
+</header>
 
-   </div>
-   {% endfor %}
+<table class=\"responsive-table\">
+  <tr class=\"table-header\">
+    <th>Event</th>
+    <th>Location</th>
+    <th>Time</th>
+    <th>Price</th>
+    <th>More Info</th>
+  </tr>
+  <tr>
+    <td class=\"event\">A Night of Musical Goodness <span>w/s/g The Robot Kids</span></td>
+    <td class=\"location\">Dr. Wily's Laboratory</td>
+    <td class=\"time\">7pm door / 8pm show</td>
+    <td class=\"price\">\$12</td>
+    <td class=\"more-info\"><a href=\"#\">View More</a></td>
+  </tr>
+  <tr>
+    <td class=\"event\">Songwriting Clinic</td>
+    <td class=\"location\">Jeb's Music Studio</td>
+    <td class=\"time\">5<span class=\"desktop-fluff\">:00</span>pm&#8202;&ndash;&#8202;7:45pm</td>
+    <td class=\"price\">Free</td>
+    <td class=\"more-info\"><a href=\"#\">View More</a></td>
+  </tr>
+  <tr>
+    <td class=\"event\">The Orchestra Fam, <span>Conducted by Aaron&nbsp;Rhoades</span></td>
+    <td class=\"location\">The Dreamland Theater</td>
+    <td class=\"time\">7<span class=\"desktop-fluff\">:00</span>pm&#8202;&ndash;&#8202;11<span class=\"desktop-fluff\">:00</span>pm</td>
+    <td class=\"price\">\$12</td>
+    <td class=\"more-info\"><a href=\"#\">View More</a></td>
+  </tr>
+</table>
+
+<style>
+h1,
+h2 {
+  text-align: center;
+}
+header {
+  h1 {
+    font-family: \"Rammetto One\", cursive;
+    margin-bottom: 0;
+  }
+  h2 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-family: \"Roboto\", sans-serif;
+  }
+}
+
+table.responsive-table {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  a {
+    text-decoration: none;
+    padding: 3px 6px;
+    border-radius: 6px 3px;
+    border: 1px solid #298ffb;
+    transition: all 0.1s ease-in-out;
+  }
+  a:hover {
+    color: #fff;
+    background: #73b7ff;
+    transition: all 0.2s ease-in-out;
+  }
+}
+td,
+th {
+  text-align: center;
+  vertical-align: middle;
+}
+tr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid #eee;
+  max-width: 400px;
+  margin: 10px 10px 20px;
+  padding: 20px;
+  box-shadow: 0 5px 10px -5px #aaa;
+      border-left: 10px solid #ffa1a1;
+    border-bottom: none;
+
+  &.table-header {
+    align-self: center;
+    display: none;
+  }
+}
+td {
+  font-family: \"Roboto\", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.more-info a {
+  color: #298ffb;
+}
+
+//getting into specific styles
+.event {
+  font-family: \"Rammetto One\", cursive;
+  color: #ffa1a1;
+}
+td:not(.event) {
+  text-align: left;
+  margin-bottom: 5px;
+  color: #777;
+}
+.desktop-fluff {
+  display: none;
+}
+
+//mobile extras
+td.price:before {
+  content: \"Price:\";
+  display: inline-block;
+  margin-right: 5px;
+}
+
+td.price {
+  display: flex;
+  flex-direction: row;
+}
+
+td.location {
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+}
+
+td.location:before {
+  content: \"@\";
+  margin-right: 3px;
+  position: relative;
+  top: -1px;
+}
 
 
+@media (min-width: 350px) {
+  td:not(.event) {
+    margin-left: 30%;
+    align-items: flex-start;
+    display: flex;
+  }
 
-   {{ form_start(commentaireForm) }}
-   {{ form_row(commentaireForm.nomutilisateur, {'attr': {'placeholder': \"Votre nom\"}}) }}
-   {{ form_row(commentaireForm.text, {'attr': {'placeholder': \"Votre commentaire\"}}) }}
+  td.event {
+    align-self: center;
+    margin-bottom: 14px;
+  }
+  td.event:after {
+    display: block;
+    content: \"\";
+    width: 100%;
+    height: 2px;
+    background: #ffa1a1;
+    position: relative;
+    top: 3px;
+  }
+}
 
-   <button type=\"submit\" class=\"btn btn-success\">Commenter !</button>
-   {{ form_end(commentaireForm) }}
-﻿<section id=\"commentaires\">
-    <h1>{{ offredemploi.commentaires | length }} commentaires : </h1>
-   {% for commentaire in offredemploi.commentaires %}
-   <div class=\"comment\">
-       <div class=\"row\">
-           <div class=\"col-3\">
-              {{commentaire.nomutilisateur}}(<small>{{ commentaire.createdAt| date('d/m/y à H:i' )}}</small>)
-           </div>
-           <div class=\"col-9\">
-              {{commentaire.text | raw}}
-           </div>
-       </div>
+@media (min-width: 768px) {
+  .desktop-fluff {
+    display: initial;
+  }
+  table.responsive-table,
+  tr,
+  td,
+  th {
+    margin: 0 auto;
+    border: 1px solid #eee;
+    border-collapse: collapse;
+  }
+  table.responsive-table {
+    display: table;
+    a {
+      text-decoration: underline;
+      border: none;
+      padding: initial;
+    }
+    a:hover {
+      background: none;
+      color: #73b7ff;
+    }
+    tr.table-header,
+    tr {
+      font-family: \"Roboto\", sans-serif;
+      display: table-row;
+      flex-direction: unset;
+      justify-content: unset;
+      align-items: unset;
+      box-shadow: none;
+    }
+    td {
+      max-width: unset;
+      display: table-cell;
+      &.event {
+        font-family: \"Roboto\", sans-serif;
+        color: #222;
+        font-size: 16px;
+        font-weight: 900;
+        text-align: left;
+      }
+      &:not(.event){
+        text-align: center;
+      }
+    }
+  }
 
-   </div>
-   {% endfor %}
+  tr {
+    th,
+    td {
+      border: 1px solid #aaa;
+      padding: 10px;
+    }
+    th {
+      font-family: \"Rammetto One\", cursive;
+      background: #4eb342;
+      border-color: #44943b;
+      color: white;
+      text-shadow: -2px 2px black;
+      font-weight: 100;
+    }
+  }
 
+  //remove mobile extras
+  td.price:before,
+  td.location:before,
+  table td.event:after {
+    display: none;
+  }
 
+  td.price,
+  td.location,
+  td:not(.event) {
+    display: table-cell;
+  }
+  table.responsive-table td:not(.event) {
+    margin-left: auto;
+    margin-bottom: auto;
+    align-items: unset;
+    display: table-cell;
+  }
 
-   {{ form_start(commentaireForm) }}
-   {{ form_row(commentaireForm.nomutilisateur, {'attr': {'placeholder': \"Votre nom\"}}) }}
-   {{ form_row(commentaireForm.text, {'attr': {'placeholder': \"Votre commentaire\"}}) }}
-
-   <button type=\"submit\" class=\"btn btn-success\">Commenter !</button>
-   {{ form_end(commentaireForm) }}
-﻿
-
-
-
-
-  <style>
-
-
-
+  td.event {
+    align-self: unset;
+    margin-bottom: 0;
+  }
+}
 
 </style>
+   
+
+
+
+
+
      
-{% endfor %}
+
 
 {% endblock %}", "offredemploi/index.html.twig", "/opt/lampp/htdocs/recrutement/templates/offredemploi/index.html.twig");
     }

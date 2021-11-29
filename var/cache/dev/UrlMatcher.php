@@ -16,7 +16,6 @@ return [
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
         '/candidas' => [[['_route' => 'candidas', '_controller' => 'App\\Controller\\CandidasController::index'], null, null, null, false, false, null]],
         '/candidat' => [[['_route' => 'candidat', '_controller' => 'App\\Controller\\CandidatController::index'], null, null, null, false, false, null]],
-        '/comment/add' => [[['_route' => 'comment_add', '_controller' => 'App\\Controller\\CommentaireController::add'], null, null, null, false, false, null]],
         '/contact' => [[['_route' => 'contact', '_controller' => 'App\\Controller\\ContactController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/postuler' => [[['_route' => 'postuler', '_controller' => 'App\\Controller\\PostulerController::index'], null, null, null, false, false, null]],
@@ -45,6 +44,7 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
+                .'|/home/([^/]++)(*:183)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -54,8 +54,9 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        183 => [
+            [['_route' => 'home_show', '_controller' => 'App\\Controller\\HomeController::show'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

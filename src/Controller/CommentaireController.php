@@ -12,34 +12,5 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CommentaireController extends AbstractController
 {
-    /**
-     * @Route("/comment/add", name="comment_add")
-     */
-    public function add(Request $request)
-    {
-        $post_id = $request->request->get('post_id');
-
-        $user = $this->getUser();
-
-        $post = $this->getDoctrine()
-                ->getRepository(Cours::class)
-                ->find($post_id);
-
-        $comment = new Commentaire();
-        $comment->setText($request->request->get('_comment'));
-        $comment->setUser($user);
-        $comment->setOffredemploi($post);
-        $comment->setCreatedAt(new \DateTimeImmutable());
-
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $entityManager->persist($comment);
-        $entityManager->flush();
-
-        $post_id = $post->getId();
-
-        return $this->redirectToRoute('offredemploi_show',[
-            'id' =>  $post_id
-        ]);
-    }
+    
 }

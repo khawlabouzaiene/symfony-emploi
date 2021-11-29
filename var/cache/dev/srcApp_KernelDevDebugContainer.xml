@@ -536,6 +536,9 @@
     <service id="App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\PostulerType" class="App\Form\PostulerType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\RecruteurType" class="App\Form\RecruteurType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -1014,6 +1017,7 @@
         <argument>App\Form\CandidasType</argument>
         <argument>App\Form\CommentaireType</argument>
         <argument>App\Form\ContactType</argument>
+        <argument>App\Form\PostulerType</argument>
         <argument>App\Form\RecruteurType</argument>
         <argument>App\Form\RegisterType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1354,7 +1358,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.3e16yDU"/>
+      <argument type="service" id=".service_locator.QrYoiOy"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5690,6 +5694,8 @@
     <service id=".abstract.instanceof.App\Form\CommentaireType" class="App\Form\CommentaireType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContactType" class="App\Form\ContactType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PostulerType" class="App\Form\PostulerType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PostulerType" class="App\Form\PostulerType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RecruteurType" class="App\Form\RecruteurType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RecruteurType" class="App\Form\RecruteurType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegisterType" class="App\Form\RegisterType" autowire="true" abstract="true"/>
@@ -6153,14 +6159,7 @@
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.14hHftQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="manager" type="service_closure" id="doctrine.orm.default_entity_manager"/>
-        <argument key="offredemploi" type="service_closure" id=".errored..service_locator.14hHftQ.App\Entity\Offredemploi"/>
-      </argument>
-    </service>
-    <service id=".service_locator.U1PpjTf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Scsjmni" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\AgenceCrudController::autocomplete" type="service_closure" id=".service_locator.h2tplhS"/>
@@ -6376,7 +6375,6 @@
         <argument key="App\Controller\Admin\UserCrudController::updateEntity" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\RegisterController::index" type="service_closure" id=".service_locator.jmvbEvf"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.g.xob4v"/>
-        <argument key="App\Controller\offredemploiController::index" type="service_closure" id=".service_locator.14hHftQ"/>
         <argument key="App\Controller\Admin\AgenceCrudController:autocomplete" type="service_closure" id=".service_locator.h2tplhS"/>
         <argument key="App\Controller\Admin\AgenceCrudController:batchDelete" type="service_closure" id=".service_locator.huuTAyO"/>
         <argument key="App\Controller\Admin\AgenceCrudController:configureActions" type="service_closure" id=".service_locator.eGAETcz"/>
@@ -6590,7 +6588,6 @@
         <argument key="App\Controller\Admin\UserCrudController:updateEntity" type="service_closure" id=".service_locator.x8FmIZ0"/>
         <argument key="App\Controller\RegisterController:index" type="service_closure" id=".service_locator.jmvbEvf"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.g.xob4v"/>
-        <argument key="App\Controller\offredemploiController:index" type="service_closure" id=".service_locator.14hHftQ"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -6662,12 +6659,13 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.3e16yDU" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QrYoiOy" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CandidasType" type="service_closure" id="App\Form\CandidasType"/>
         <argument key="App\Form\CommentaireType" type="service_closure" id="App\Form\CommentaireType"/>
         <argument key="App\Form\ContactType" type="service_closure" id="App\Form\ContactType"/>
+        <argument key="App\Form\PostulerType" type="service_closure" id="App\Form\PostulerType"/>
         <argument key="App\Form\RecruteurType" type="service_closure" id="App\Form\RecruteurType"/>
         <argument key="App\Form\RegisterType" type="service_closure" id="App\Form\RegisterType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudFormType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudFormType"/>
@@ -7281,12 +7279,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.U1PpjTf"/>
+      <argument type="service" id=".service_locator.Scsjmni"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.U1PpjTf"/>
+      <argument type="service" id=".service_locator.Scsjmni"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7312,7 +7310,6 @@
     <service id=".errored..service_locator.1ZmGw6X.EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore" class="EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore"/>
     <service id=".errored..service_locator._L8Y8bZ.EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore" class="EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore"/>
     <service id=".errored..service_locator.RLVVpop.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
-    <service id=".errored..service_locator.14hHftQ.App\Entity\Offredemploi" class="App\Entity\Offredemploi"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.lBh0WQE"/>
       <argument type="collection">
@@ -7709,7 +7706,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.U1PpjTf"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Scsjmni"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

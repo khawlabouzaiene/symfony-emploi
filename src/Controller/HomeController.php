@@ -23,4 +23,18 @@ class HomeController extends AbstractController
            
     }
 
+
+
+    /**
+     * @Route("/home/{id}", name="home_show")
+    */
+    public function show($id)
+    {
+        $candidas = $this->getDoctrine()
+                      ->getRepository(Candidas::class)
+                      ->findOneBy(['id'=>$id]);
+                      return $this->render('home/show.html.twig', [
+                        'candidas' => $candidas
+                    ]);
+}
 }
